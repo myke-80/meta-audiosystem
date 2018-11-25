@@ -1,5 +1,8 @@
 #!/bin/sh
 
+MYRPI_BRANCH="thud"
+MYRPI="8dae620bc85159057a777a0c186fc8525b7e3c21"
+
 if [ -z "$1" ]; then 
 	echo "Please provide base folder"
 	exit 1
@@ -9,9 +12,8 @@ if [ ! -d "$1" ]; then
 	exit 2
 fi
 
-SCRIPTPATH=$(pwd)/$(dirname "$0")
-. ${SCRIPTPATH}/versions.sh
-
+SCRIPT_PATH=$(pwd)/$(dirname "$0")
+echo ${SCRIPT_PATH}
 ROOT=${1%/}
 
 if [ ! -d "${ROOT}/poky" ]; then 
@@ -19,29 +21,11 @@ if [ ! -d "${ROOT}/poky" ]; then
 	exit 3
 fi
 
-cd ${ROOT}/poky
-echo Updating poky
-git fetch
-git reset --hard ${POKY}
-
-echo Updating openembedded
-cd ${ROOT}/poky/meta-openembedded
-git fetch
-git reset --hard ${OE}
-cd ..
-
-echo Updating raspberrypi
-cd ${ROOT}/poky/meta-raspberrypi
-git fetch
-git reset --hard ${RPI}
-cd ..
-
-echo Updating qt5
-cd ${ROOT}/poky/meta-qt5
-git fetch
-git reset --hard ${QT5}
-
-echo Updating myrpi
 cd ${ROOT}/poky/meta-myrpi
+echo Updating Myrpi
 git fetch
+git checkout ${MYRPI_BRANCH}
+git pull
 git reset --hard ${MYRPI}
+
+${SCRIPT_PATH}/../../../poky/meta-myrpi/scripts/update.sh $1
