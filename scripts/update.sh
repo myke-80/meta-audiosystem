@@ -1,7 +1,6 @@
 #!/bin/sh
 
-MYRPI_BRANCH="thud"
-MYRPI="8dae620bc85159057a777a0c186fc8525b7e3c21"
+MYRPI_BRANCH="sumo"
 
 if [ -z "$1" ]; then 
 	echo "Please provide base folder"
@@ -13,7 +12,6 @@ if [ ! -d "$1" ]; then
 fi
 
 SCRIPT_PATH=$(pwd)/$(dirname "$0")
-echo ${SCRIPT_PATH}
 ROOT=${1%/}
 
 if [ ! -d "${ROOT}/poky" ]; then 
@@ -26,6 +24,6 @@ echo Updating Myrpi
 git fetch
 git checkout ${MYRPI_BRANCH}
 git pull
-git reset --hard ${MYRPI}
+git reset HEAD --hard
 
 ${SCRIPT_PATH}/../../../poky/meta-myrpi/scripts/update.sh $1

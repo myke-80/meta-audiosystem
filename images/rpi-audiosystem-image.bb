@@ -28,8 +28,9 @@ CONNECTIVITY = " \
 "
 
 AUDIO = " \
-    pulseaudio \
-    pulseaudio-server \
+    alsa-utils \
+    alsa-plugins \
+    mpd \
 "
 
 RPI = " \
@@ -42,7 +43,6 @@ QT5 = " \
 
 QT_TEST = " \
 	qt-quick-test \
-    qt-bluetooth \
 "
 
 # Include modules in rootfs
@@ -56,3 +56,5 @@ IMAGE_INSTALL += " \
 "
 
 # pulseaudio-module-dbus-protocol
+# pulseaudio
+# pulseaudio-server
