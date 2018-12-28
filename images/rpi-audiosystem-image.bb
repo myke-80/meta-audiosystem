@@ -31,6 +31,7 @@ AUDIO = " \
     alsa-utils \
     alsa-plugins \
     mpd \
+    mpc \
 "
 
 RPI = " \
@@ -54,7 +55,3 @@ IMAGE_INSTALL += " \
 	${QT_TEST} \
     ${AUDIO} \
 "
-
-# pulseaudio-module-dbus-protocol
-# pulseaudio
-# pulseaudio-server

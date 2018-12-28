@@ -3,7 +3,7 @@ SUMMARY = "A stable, documented, asynchronous API library for interfacing MPD in
 HOMEPAGE = "http://www.musicpd.org/libs/libmpdclient/"
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
+LIC_FILES_CHKSUM = "file://COPYING;md5=06b9dfd2f197dc514d8ef06549684b77"
 PR = "r0"
 
 SRC_URI="http://www.musicpd.org/download/libmpdclient/2/${BP}.tar.xz"
