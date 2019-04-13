@@ -25,6 +25,8 @@ CONNECTIVITY = " \
     bluez5 \
     bluez5-testtools \
     bluez5-noinst-tools \
+    wpa-supplicant \
+    networkmanager \
 "
 
 AUDIO = " \
@@ -55,3 +57,5 @@ IMAGE_INSTALL += " \
 	${QT_TEST} \
     ${AUDIO} \
 "
+
+#     alsa-custom-conf

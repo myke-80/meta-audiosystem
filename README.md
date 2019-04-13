@@ -41,7 +41,7 @@ This images were installed in a rpi zero w.
 
 meta                 
 meta-poky            
-meta-yocto-bsp       = "sumo:623b77885051174d0e05198843e739110977bd18"
+meta-yocto-bsp       = "sumo:84b78df15ff77b2fe2aeb62fcaa265dce7ebfbbb"
 meta-oe              
 meta-networking      
 meta-multimedia      

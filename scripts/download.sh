@@ -6,11 +6,9 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 if [ ! -d "$1" ]; then 
-	echo "Folde $1 doesn't exists"
+	echo "Folder $1 doesn't exists"
 	exit 2
 fi
-
-. ${SCRIPTPATH}/versions.sh
 
 ROOT=${1%/}
 
@@ -18,40 +16,30 @@ cd ${ROOT}
 
 if [ ! -d "${ROOT}/poky" ]; then
 	git clone -b master git://git.yoctoproject.org/poky
-	cd ${ROOT}/poky
-	git reset --hard ${POKY}
 fi
 
 cd ${ROOT}/poky
 
 if [ ! -d "${ROOT}/poky/meta-openembedded" ]; then
 	git clone -b master git://git.openembedded.org/meta-openembedded
-	cd ${ROOT}/poky/meta-openembedded
-	git reset --hard ${OE}
 fi
 
 cd ${ROOT}/poky
 
 if [ ! -d "${ROOT}/poky/meta-raspberrypi" ]; then
 	git clone -b master https://github.com/agherzan/meta-raspberrypi.git
-	cd ${ROOT}/poky/meta-raspberrypi
-	git reset --hard ${RPI}
 fi
 
 cd ${ROOT}/poky
 
 if [ ! -d "${ROOT}/poky/meta-qt5" ]; then
 	git clone -b master https://github.com/meta-qt5/meta-qt5
-	cd ${ROOT}/poky/meta-qt5
-	git reset --hard ${QT5}
 fi
 
 cd ${ROOT}/poky
 
 if [ ! -d "${ROOT}/poky/meta-myrpi" ]; then
 	git clone -b master https://github.com/myke-80/meta-myrpi
-	cd ${ROOT}/poky/meta-myrpi
-	git reset --hard ${MYRPI}
 fi
 
 if [ ! -d "${ROOT}/build" ]; then
